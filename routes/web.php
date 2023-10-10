@@ -38,3 +38,4 @@ Route::get('/logout', [newMember::class,'logout']);
 Route::post('/post', [newPost::class,'post']);
 Route::get('/edit-post/{post}', [newPost::class,'showEditScreen']);
 Route::put('/edit-post/{post}', [newPost::class,'updatePost']);
+Route::delete('/delete-post/{post}', [newPost::class,'deletePost']);
