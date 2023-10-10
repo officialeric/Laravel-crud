@@ -55,6 +55,13 @@
   <div class="bg-blue-200 m-2 p-3">
     <h3>{{$post['title']}}</h3>
     {{$post['details']}}
+    <p><a href="/edit-post/{{$post->id}}">Edit</a></p>
+    <form action="/delete-post/{{$post->id}}" method="POST">
+      @csrf 
+      @method('DELETE')
+      <button>Delete</button>
+    </form>
+    
   </div>
   @endforeach
  </div>

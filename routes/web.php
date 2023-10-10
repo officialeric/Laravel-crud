@@ -26,11 +26,15 @@ Route::get('/signup', function () {
 
 Route::get('/home', function () {
   // $posts = Post::where('user_id',auth()->id()) -> get();
-  $posts = auth()->user()->usersCoolPosts()->latest()->get();
+    $posts = auth()->user()->usersCoolPosts()->latest()->get();
     return view('home',['posts'=>$posts]);
 });
 
 Route::post('/newMember', [newMember::class,'signup']);
 Route::post('/login', [newMember::class,'login']);
 Route::get('/logout', [newMember::class,'logout']);
+
+// Blog related routes
 Route::post('/post', [newPost::class,'post']);
+Route::get('/edit-post/{post}', [newPost::class,'showEditScreen']);
+Route::put('/edit-post/{post}', [newPost::class,'updatePost']);
