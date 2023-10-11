@@ -33,6 +33,8 @@ Route::get('/home', function () {
 Route::post('/newMember', [newMember::class,'signup']);
 Route::post('/login', [newMember::class,'login']);
 Route::get('/logout', [newMember::class,'logout']);
+Route::get('/login/google', [newMember::class,'redirectToGoogle']);
+Route::get('/callback', [newMember::class,'handleGoogleCallback']);
 
 // Blog related routes
 Route::post('/post', [newPost::class,'post']);
