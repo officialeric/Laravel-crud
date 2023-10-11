@@ -30,14 +30,14 @@ Route::get('/home', function () {
     return view('home',['posts'=>$posts]);
 });
 
-Route::post('/newMember', [newMember::class,'signup']);
-Route::post('/login', [newMember::class,'login']);
-Route::get('/logout', [newMember::class,'logout']);
-Route::get('/login/google', [newMember::class,'redirectToGoogle']);
-Route::get('/callback', [newMember::class,'handleGoogleCallback']);
+Route::post('/newMember', [userController::class,'signup']);
+Route::post('/login', [userController::class,'login']);
+Route::get('/logout', [userController::class,'logout']);
+Route::get('/login/google', [userController::class,'redirectToGoogle']);
+Route::get('/callback', [userController::class,'handleGoogleCallback']);
 
 // Blog related routes
-Route::post('/post', [newPost::class,'post']);
-Route::get('/edit-post/{post}', [newPost::class,'showEditScreen']);
-Route::put('/edit-post/{post}', [newPost::class,'updatePost']);
-Route::delete('/delete-post/{post}', [newPost::class,'deletePost']);
+Route::post('/post', [postController::class,'post']);
+Route::get('/edit-post/{post}', [postController::class,'showEditScreen']);
+Route::put('/edit-post/{post}', [postController::class,'updatePost']);
+Route::delete('/delete-post/{post}', [postController::class,'deletePost']);
